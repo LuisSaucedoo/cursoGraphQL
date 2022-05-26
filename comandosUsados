@@ -4,6 +4,13 @@ npm init
 # Luego se procede a instalar dos dependencias:
 1) npm i apollo-server
 2) npm i -D nodemon
+3) npm i graphql
 
 ## -D porque es una dependencia de Desarrollo
 ## nodemon lo que hace es ir reiniciando el servidor mientras vamos haciendo cambios
+
+
+## Para correr el programa :
+1) en package.json modificamos los scripts
+2) creamos en la base un archivo llamado: index.js
+3) npm run dev    -> esto es para correr el programa
