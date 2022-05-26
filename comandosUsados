@@ -5,6 +5,7 @@ npm init
 1) npm i apollo-server
 2) npm i -D nodemon
 3) npm i graphql
+4) npm i mongoose dotenv
 
 ## -D porque es una dependencia de Desarrollo
 ## nodemon lo que hace es ir reiniciando el servidor mientras vamos haciendo cambios
