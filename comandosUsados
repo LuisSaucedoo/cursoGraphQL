@@ -1,0 +1,9 @@
+# Para inicializar el proyecto dede 0:
+npm init
+
+# Luego se procede a instalar dos dependencias:
+1) npm i apollo-server
+2) npm i -D nodemon
+
+## -D porque es una dependencia de Desarrollo
+## nodemon lo que hace es ir reiniciando el servidor mientras vamos haciendo cambios
