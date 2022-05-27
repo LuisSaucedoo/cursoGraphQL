@@ -64,8 +64,19 @@ const resolvers = {
         return {
           token: crearToken(existeUsuario, process.env.SECRETA, '24h')
         }
+      },
 
+      nuevoProducto: async(_, { input }) => {
+        try {
+          const producto = new Producto(input);
 
+          // Almacenar en la base de datos
+          const resultado = await producto.save();
+
+          return resultado;
+        } catch (error) {
+          console.log(error);
+        }
       }
 
     }
