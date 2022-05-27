@@ -4,7 +4,7 @@ const UsuariosSchema = mongoose.Schema({
     nombre: {
         type: String,
         required: true,
-        trim: true //trim elimina espacios innecesarios
+        trim: true
     },
     apellido: {
         type: String,
