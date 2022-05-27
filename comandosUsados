@@ -6,9 +6,11 @@ npm init
 2) npm i -D nodemon
 3) npm i graphql
 4) npm i mongoose dotenv
+4) npm i bcryptjs
 
-## -D porque es una dependencia de Desarrollo
-## nodemon lo que hace es ir reiniciando el servidor mientras vamos haciendo cambios
+# Explicación de algunas dependencias:
+## nodemon lo que hace es ir reiniciando el servidor mientras vamos haciendo cambios -> -D porque es una dependencia de Desarrollo
+## bcryptjs es para hashear las contraseñas
 
 
 ## Para correr el programa :
