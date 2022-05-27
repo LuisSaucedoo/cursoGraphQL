@@ -7,14 +7,17 @@ const crearToken = (usuario, secreta, expiresIn) => {
   console.log(usuario);
   const { id, email, nombre, apellido } = usuario;
 
-  // sign crea un token, es de jsonwebtoken
   return jwt.sign( { id, email, nombre, apellido }, secreta, { expiresIn } )
 }
 
 // Resolvers
 const resolvers = {
     Query: {
-      obtenerCurso: () => "Algo"
+      obtenerUsuario: async(_, { token }) => {
+        const usuarioId = await jwt.verify(token, process.env.SECRETA)
+
+        return usuarioId
+      }
     },
     Mutation: {
       nuevoUsuario: async(_, { input }) => {
@@ -51,7 +54,7 @@ const resolvers = {
         }
 
         // Revisar si el password es correcto
-        const passwordCorrecto = await bcryptjs.compare(password, existeUsuario.password); // aquí comparamos el password plano con el password hasheado
+        const passwordCorrecto = await bcryptjs.compare(password, existeUsuario.password);
         if ( !passwordCorrecto ) {
           throw new Error('El password es Incorrecto');
         }
