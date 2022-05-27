@@ -7,6 +7,7 @@ npm init
 3) npm i graphql
 4) npm i mongoose dotenv
 4) npm i bcryptjs
+4) npm i jsonwebtoken 
 
 # Explicación de algunas dependencias:
 ## nodemon lo que hace es ir reiniciando el servidor mientras vamos haciendo cambios -> -D porque es una dependencia de Desarrollo
