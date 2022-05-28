@@ -123,7 +123,9 @@ const resolvers = {
         return "Producto Eliminado";
       },
 
-      nuevoCliente: async(_, { input }) => {
+      nuevoCliente: async(_, { input }, ctx) => {
+        console.log(ctx);
+
         const { email } = input;
         // Verificar si el cliente ya está registrado
         
@@ -135,7 +137,7 @@ const resolvers = {
         const nuevoCliente = new Cliente(input);
 
         // Asignar el vendedor
-        nuevoCliente.vendedor = "62907d09047aefc678511c46";
+        nuevoCliente.vendedor = ctx.usuario.id;
         
         // Guardar en la base de datos
         try {
