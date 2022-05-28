@@ -121,6 +121,29 @@ const resolvers = {
         // Si existe, eliminarlo
         await Producto.findOneAndDelete({ _id : id });
         return "Producto Eliminado";
+      },
+
+      nuevoCliente: async(_, { input }) => {
+        const { email } = input;
+        // Verificar si el cliente ya está registrado
+        
+        const cliente = await Cliente.findOne({email});
+        if (cliente) {
+          throw new Error('Ese cliente ya está registrado');
+        }
+
+        const nuevoCliente = new Cliente(input);
+
+        // Asignar el vendedor
+        nuevoCliente.vendedor = "62907d09047aefc678511c46";
+        
+        // Guardar en la base de datos
+        try {
+          const resultado = await nuevoCliente.save();
+          return resultado;
+        } catch (error) {
+          console.log(error);
+        }
       }
 
     }
