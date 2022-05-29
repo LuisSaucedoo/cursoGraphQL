@@ -233,7 +233,17 @@ const resolvers = {
         }
 
         // Revisar que el stock esté disponible
-        
+        for await ( const articulo of input.pedido ) {
+          const { id } = articulo;
+
+          const producto = await Producto.findById(id);
+
+          if (articulo.cantidad > producto.existencia) {
+            throw new Error(`El artículo ${producto.nombre} excede la cantidad disponible`);
+          }
+        }
+
+        // Crear un nuevo pedido
 
         // Asiganarle un vendedor
 
